@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d53ca1cabf314e1db2c22b9db48b74c2" Name="Diagram1">
+        <EntityTypeShape EntityType="G14Model.Account" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.Actor" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.Cinema" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.FeedBackFilm" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.Film" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.Room" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.Session" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="G14Model.Ticket" Width="1.5" PointX="10.5" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="G14Model.FK_Ticket_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="G14Model.FK_Room_Cinema" ManuallyRouted="false" />
+        <AssociationConnector Association="G14Model.FK_FeedBackFilm_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="G14Model.FK_Session_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="G14Model.FK_Session_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="G14Model.FK_Ticket_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="G14Model.Film_Actor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

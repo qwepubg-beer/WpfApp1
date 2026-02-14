@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="151*"/>
-        </Grid.ColumnDefinitions>
-
+        <Frame Name="MainFrame" Content="" NavigationUIVisibility="Hidden" Margin="0,35,0,0"/>
+        <Button Content="Главная" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="30,0,0,0" Height="30" Click="Button_Click"/>
+        <Button Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="695,0,0,0" Height="30" Click="Button_Click_1"/>
+        <Button Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="595,0,0,0" Height="30" Click="Button_Click_2"/>
+        <Button Content="Корзина" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="130,0,0,0" Height="30" RenderTransformOrigin="-1.544,0.394"/>
+        <Button Content="Мои билеты" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="230,0,0,0" Height="30"/>
     </Grid>
 </Window>

@@ -1,0 +1,43 @@
+﻿<Page x:Class="WpfApp1.Pages.GetFilm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GetFilm">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Margin="0,28,0,0">
+            <Image Height="100" Width="300"/>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Name="ReleaseDate" Padding="15" />
+                <TextBlock Name="Name" Padding="15"/>
+                <TextBlock Name="Genre" Padding="15" />
+                <TextBlock Name="Description" Padding="15"/>
+                <TextBlock Name="Age" Padding="15" />
+            </StackPanel>
+        </StackPanel>
+        <ListBox x:Name="FilmList" SelectionChanged="Session_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="310,0,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Padding="15" Text="{Binding Start_date, StringFormat=начало: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding End_date, StringFormat=конец: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                        </StackPanel>
+                        <Button Height="40" Content="Купить билеты" Click="Button_Click"></Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        <Button Content="Вернуться назад" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" Height="23" Click="Button_Click"/>
+    </Grid>
+</Page>
