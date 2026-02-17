@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Pages;
 
 namespace WpfApp1
 {
@@ -34,13 +35,13 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Enter1());
+            MainFrame.NavigationService.Navigate(new Enter());
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Enter2());
+            MainFrame.NavigationService.Navigate(new Registration());
         }
     }
 }
-}
+

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cimema
+namespace WpfApp1
 {
-    static public class Choose
+    internal class MainClass
     {
-        static public bool Enter { get; set; }=false;
-        public static Account  user { get; set; }
+        static public bool Enter { get; set; } = false;
+        public static Account user { get; set; }
         static public List<Film> Film { get; set; }
         static public Film ChoosingFilm { get; set; }
     }

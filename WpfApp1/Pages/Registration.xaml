@@ -5,20 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="420" d:DesignWidth="800"
       Title="Registration">
 
     <Grid>
         <StackPanel Margin="207,0,207,104">
-            <Label Content="E-mail" Margin="0,10" HorizontalAlignment="Center"/>
+            <Label Content="E-mail" HorizontalAlignment="Center"/>
             <TextBox Name="mail" TextWrapping="Wrap" Text="" Width="150"/>
-            <Label Content="Логин" Margin="0,10" HorizontalAlignment="Center"/>
+            <Label Content="Логин" Margin="0,8" HorizontalAlignment="Center"/>
             <TextBox Name ="login" TextWrapping="Wrap" Text="" Width="150"/>
-            <Label Content="Пароль" Margin="0,10" HorizontalAlignment="Center"/>
+            <Label Content="Пароль" Margin="0,8" HorizontalAlignment="Center"/>
             <TextBox Name="p1" TextWrapping="Wrap" Text="" Width="150"/>
-            <Label Content="Повторите пароль" Margin="0,10" HorizontalAlignment="Center"/>
+            <Label Content="Повторите пароль" Margin="0,8" HorizontalAlignment="Center"/>
             <TextBox Name ="p2" TextWrapping="Wrap" Text="" Width="150"/>
-            <Button Content="Зарегестрироваться" Margin="0,10" Click="Button_Click"/>
+            <Button Content="Зарегестрироваться" Margin="0,8" Click="Button_Click"/>
         </StackPanel>
 
     </Grid>

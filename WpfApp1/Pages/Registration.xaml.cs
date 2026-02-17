@@ -46,7 +46,7 @@ namespace WpfApp1.Pages
                         Core.Context.Account.Add(newUser);
                         Core.Context.SaveChanges();
                         MessageBox.Show("Вы зарегестрированы!");
-                        Choose.user = newUser;
+                        MainClass.user = newUser;
                         MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
                         mainWindow.MainFrame.Navigate(new ChooseFilm());
                     }

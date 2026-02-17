@@ -23,11 +23,11 @@ namespace WpfApp1.Pages
         public GetFilm()
         {
             InitializeComponent();
-            ReleaseDate.Text = Choose.ChoosingFilm.ReleaseDate.ToString();
-            Name.Text = Choose.ChoosingFilm.Name;
-            Genre.Text = "Жанр: " + Choose.ChoosingFilm.Genre;
-            Name.Text = "Описание: " + Choose.ChoosingFilm.Description;
-            Name.Text = Choose.ChoosingFilm.Age.ToString() + "+";
+            ReleaseDate.Text = MainClass.ChoosingFilm.ReleaseDate.ToString();
+            Name.Text = MainClass.ChoosingFilm.Name;
+            Genre.Text = "Жанр: " + MainClass.ChoosingFilm.Genre;
+            Name.Text = "Описание: " + MainClass.ChoosingFilm.Description;
+            Name.Text = MainClass.ChoosingFilm.Age.ToString() + "+";
 
         }
 

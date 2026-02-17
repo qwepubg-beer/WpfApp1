@@ -1,4 +1,4 @@
-﻿using Cimema.Pages;
+﻿using WpfApp1.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static WpfApp1.MainClass;
 
 namespace WpfApp1.Pages
 {
@@ -30,14 +31,14 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FilmS());
+            NavigationService.Navigate(new GetFilm());
         }
 
 
         private void FilmList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Film choosing = FilmList.SelectedItem as Film;
-            if (choosing != null) { Choose.ChoosingFilm = choosing; }
+            if (choosing != null) { MainClass.ChoosingFilm = choosing; }
         }
 
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)

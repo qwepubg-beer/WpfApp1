@@ -36,7 +36,7 @@ namespace WpfApp1.Pages
                     if (editUser.Password == pas.Text)
                     {
                         MessageBox.Show("Вы вошли в аккаунт");
-                        Choose.user = editUser;
+                        MainClass.user = editUser;
                         MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
                         mainWindow.MainFrame.Navigate(new ChooseFilm());
                     }

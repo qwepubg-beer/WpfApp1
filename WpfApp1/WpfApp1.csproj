@@ -84,6 +84,7 @@
     <Compile Include="Film.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="MainClass.cs" />
     <Compile Include="Room.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -114,7 +115,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Choose.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -135,22 +135,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="p\ChooseFilm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="p\Enter1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="p\Enter2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="p\FilmS.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\ChooseFilm.xaml.cs">
@@ -164,18 +148,6 @@
     </Compile>
     <Compile Include="Pages\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="p\ChooseFilm.xaml.cs">
-      <DependentUpon>ChooseFilm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="p\Enter1.xaml.cs">
-      <DependentUpon>Enter1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="p\Enter2.xaml.cs">
-      <DependentUpon>Enter2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="p\FilmS.xaml.cs">
-      <DependentUpon>FilmS.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -198,6 +170,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BD.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include=".editorconfig" />
     <None Include="BD.edmx.diagram">
       <DependentUpon>BD.edmx</DependentUpon>
     </None>
@@ -211,6 +184,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Actors\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
