@@ -42,6 +42,22 @@ namespace WpfApp1
         {
             MainFrame.NavigationService.Navigate(new Registration());
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (MainClass.user!=null)
+            {
+                MainFrame.NavigationService.Navigate(new MyTickets());
+            }
+            else
+            {
+                var result=MessageBox.Show("Вы хотите войти в аккаунт?","Ошибка авторизации",MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes) { MainFrame.NavigationService.Navigate(new Enter()); }
+                
+
+            }
+
+        }
     }
 }
 
