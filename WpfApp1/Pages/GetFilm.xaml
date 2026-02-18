@@ -9,27 +9,28 @@
       Title="GetFilm">
 
     <Grid>
-        <StackPanel  Margin="0,28,0,0" HorizontalAlignment="Left" Width="297">
-            <Image Height="100" Width="300"/>
+        <StackPanel  Margin="0,28,0,2" HorizontalAlignment="Left" Width="425">
+            <Image Source="{Binding Image}" Height="100" Width="300" />
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Name="ReleaseDate" Padding="15" />
-                <TextBlock Name="Name" Padding="15"/>
-                <TextBlock Name="Genre" Padding="15" />
-                <TextBlock Name="Description" Padding="15"/>
-                <TextBlock Name="Age" Padding="15" />
+                <TextBlock Text="{Binding Name}" Padding="10" />
+                <TextBlock Text="{Binding ReleaseDate}" Padding="10"/>
+                <TextBlock Text="{Binding Genre}" Padding="10" />
+                <TextBlock Text="{Binding Description}" Padding="10" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Age, StringFormat=Возраст: {0}+}" Padding="10" />
+                <Button Content="Купить билет" HorizontalAlignment="Center" VerticalAlignment="Top" Width="224" Height="35"  Click="Button_Click_1"/>
             </StackPanel>
         </StackPanel>
-        <ListBox x:Name="FilmList" SelectionChanged="Session_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="310,0,0,0">
+        <ListBox x:Name="ActorsList" SelectionChanged="Session_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="430,0,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center">
+                        <Image Height="100" Width="160"  Source="{Binding Image}"/>
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Padding="15" Text="{Binding Start_date, StringFormat=начало: {0}}"/>
-                            <TextBlock Padding="15" Text="{Binding End_date, StringFormat=конец: {0}}"/>
-                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding Name}"/>
+                            <TextBlock Padding="15" Text="{Binding Age, StringFormat=Возраст: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding Description}" TextWrapping="Wrap"/>
                         </StackPanel>
-                        <Button Height="40" Content="Купить билеты" Click="Button_Click"></Button>
-                    </StackPanel>
+                </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
             <ListBox.ItemsPanel>

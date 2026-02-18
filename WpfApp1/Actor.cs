@@ -17,14 +17,16 @@ namespace WpfApp1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Actor()
         {
-            this.Film = new HashSet<Film>();
+            this.FilmActor = new HashSet<FilmActor>();
         }
     
         public int ID { get; set; }
-        public string FullName { get; set; }
-        public int Age { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public Nullable<int> Age { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Film> Film { get; set; }
+        public virtual ICollection<FilmActor> FilmActor { get; set; }
     }
 }

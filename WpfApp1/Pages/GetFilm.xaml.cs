@@ -22,13 +22,16 @@ namespace WpfApp1.Pages
     {
         public GetFilm()
         {
+            DataContext = MainClass.ChoosingFilm;
             InitializeComponent();
-            ReleaseDate.Text = MainClass.ChoosingFilm.ReleaseDate.ToString();
-            Name.Text = MainClass.ChoosingFilm.Name;
-            Genre.Text = "Жанр: " + MainClass.ChoosingFilm.Genre;
-            Name.Text = "Описание: " + MainClass.ChoosingFilm.Description;
-            Name.Text = MainClass.ChoosingFilm.Age.ToString() + "+";
-
+            List <FilmActor> actors = Core.Context.FilmActor.Where(a=>a.FilmID==MainClass.ChoosingFilm.ID).ToList();
+            List <Actor> actors1 = new List<Actor>();
+            foreach(FilmActor actor in actors)
+            {
+                Actor editUser = Core.Context.Actor.First(u => u.ID==actor.ActorID);
+                actors1.Add(editUser);  
+            }
+            ActorsList.ItemsSource = actors1;   
         }
 
         private void Session_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,6 +44,23 @@ namespace WpfApp1.Pages
         {
             if (NavigationService.CanGoBack)
             { NavigationService.GoBack(); }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if (MainClass.user != null)
+            {
+                mainWindow.MainFrame.Navigate(new BuyTicket());
+            }
+            else
+            {
+                var result = MessageBox.Show("Вы хотите войти в аккаунт?", "Ошибка авторизации", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes) { mainWindow.MainFrame.Navigate(new Enter()); }
+
+
+            }
         }
     }
 }

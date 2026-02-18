@@ -13,10 +13,10 @@ namespace WpfApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class G14Entities : DbContext
+    public partial class Gordov1CEntities : DbContext
     {
-        public G14Entities()
-            : base("name=G14Entities")
+        public Gordov1CEntities()
+            : base("name=Gordov1CEntities")
         {
         }
     
@@ -30,6 +30,7 @@ namespace WpfApp1
         public virtual DbSet<Cinema> Cinema { get; set; }
         public virtual DbSet<FeedBackFilm> FeedBackFilm { get; set; }
         public virtual DbSet<Film> Film { get; set; }
+        public virtual DbSet<FilmActor> FilmActor { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Session> Session { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

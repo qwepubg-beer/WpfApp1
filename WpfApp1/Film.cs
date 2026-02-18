@@ -18,23 +18,24 @@ namespace WpfApp1
         public Film()
         {
             this.FeedBackFilm = new HashSet<FeedBackFilm>();
+            this.FilmActor = new HashSet<FilmActor>();
             this.Session = new HashSet<Session>();
-            this.Actor = new HashSet<Actor>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> ReleaseDate { get; set; }
+        public System.DateTime ReleaseDate { get; set; }
         public string Genre { get; set; }
         public string Description { get; set; }
         public Nullable<double> Rating { get; set; }
         public Nullable<int> Age { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FeedBackFilm> FeedBackFilm { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Session> Session { get; set; }
+        public virtual ICollection<FilmActor> FilmActor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Actor> Actor { get; set; }
+        public virtual ICollection<Session> Session { get; set; }
     }
 }

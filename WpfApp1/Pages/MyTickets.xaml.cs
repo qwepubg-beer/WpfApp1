@@ -23,7 +23,7 @@ namespace WpfApp1.Pages
         public MyTickets()
         {
             InitializeComponent();
-            List < Ticket > tic = Core.Context.Ticket.Where(a=>a.AccountID==MainClass.user.ID  && a.DateOfPurchase >= DateTime.Now).ToList();
+            List < Ticket > tic = Core.Context.Ticket.Where(a=>a.AccountID==MainClass.user.ID  && a.PurchaseDate >= DateTime.Now).ToList();
             if (tic.Count > 0)
             {
                 Tickets.ItemsSource = tic;

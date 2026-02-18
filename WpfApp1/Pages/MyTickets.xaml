@@ -20,7 +20,7 @@
                                 <TextBlock Padding="15" Text="{Binding Genre, StringFormat=Цена: {0}}"/>
                                 <TextBlock Padding="15" Text="{Binding Age+}"/>
                             </StackPanel>
-                            <Button Height="40" Content="Удалить" Click="Button_Click"></Button>
+                            <Button Height="40" Content="Удалить"></Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

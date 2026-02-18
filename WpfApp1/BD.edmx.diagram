@@ -4,23 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d53ca1cabf314e1db2c22b9db48b74c2" Name="Diagram1">
-        <EntityTypeShape EntityType="G14Model.Account" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.Actor" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.Cinema" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.FeedBackFilm" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.Film" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.Room" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.Session" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="G14Model.Ticket" Width="1.5" PointX="10.5" PointY="2.5" IsExpanded="true" />
-        <AssociationConnector Association="G14Model.FK_Ticket_Account" ManuallyRouted="false" />
-        <AssociationConnector Association="G14Model.FK_Room_Cinema" ManuallyRouted="false" />
-        <AssociationConnector Association="G14Model.FK_FeedBackFilm_Film" ManuallyRouted="false" />
-        <AssociationConnector Association="G14Model.FK_Session_Film" ManuallyRouted="false" />
-        <AssociationConnector Association="G14Model.FK_Session_Room" ManuallyRouted="false" />
-        <AssociationConnector Association="G14Model.FK_Ticket_Session" ManuallyRouted="false" />
-        <AssociationConnector Association="G14Model.Film_Actor" ManuallyRouted="false" />
+      <Diagram DiagramId="1ea1312a645047fe9c8495d583bc01cb" Name="Diagram1">
+        <EntityTypeShape EntityType="Gordov1CModel.Account" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Actor" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Cinema" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.FeedBackFilm" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Film" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.FilmActor" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Room" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Session" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Ticket" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="Gordov1CModel.FK__FeedBackF__Accou__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__Ticket__AccountI__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__FilmActor__Actor__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__Room__CinemaID__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__FeedBackF__FilmI__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__FilmActor__FilmI__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__Session__FilmID__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__Session__RoomID__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="Gordov1CModel.FK__Ticket__SessionI__5DCAEF64" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

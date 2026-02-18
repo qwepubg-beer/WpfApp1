@@ -12,21 +12,14 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Room
+    public partial class FilmActor
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Room()
-        {
-            this.Session = new HashSet<Session>();
-        }
-    
         public int ID { get; set; }
-        public int TotalSeats { get; set; }
-        public int Number { get; set; }
-        public int CinemaID { get; set; }
+        public int FilmID { get; set; }
+        public int ActorID { get; set; }
+        public string RoleName { get; set; }
     
-        public virtual Cinema Cinema { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Session> Session { get; set; }
+        public virtual Actor Actor { get; set; }
+        public virtual Film Film { get; set; }
     }
 }
