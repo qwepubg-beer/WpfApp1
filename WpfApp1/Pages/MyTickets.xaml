@@ -16,9 +16,9 @@
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel VerticalAlignment="Center">
-                                <TextBlock Padding="15" Text="{Binding Seat, StringFormat=Место: {0}}"/>
-                                <TextBlock Padding="15" Text="{Binding Genre, StringFormat=Цена: {0}}"/>
-                                <TextBlock Padding="15" Text="{Binding Age+}"/>
+                                <TextBlock Padding="5" Text="{Binding Seat, StringFormat=Место: {0}}"/>
+                                <TextBlock Padding="5" Text="{Binding Genre, StringFormat=Цена: {0}}"/>
+                                <TextBlock Padding="5" Text="{Binding Age+}"/>
                             </StackPanel>
                             <Button Height="40" Content="Удалить"></Button>
                         </StackPanel>

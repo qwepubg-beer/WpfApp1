@@ -84,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Buy.cs" />
     <Compile Include="Cinema.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -212,8 +213,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Зеленаямиля.jpg" />
     <Resource Include="Actors\Нортон.jpg" />
     <Resource Include="Actors\Питт.jpg" />
+    <Resource Include="Actors\Морс.jpg" />
+    <Resource Include="Actors\Хэнкс.jpg" />
     <Content Include="BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>

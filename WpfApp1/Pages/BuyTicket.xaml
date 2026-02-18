@@ -9,14 +9,14 @@
       Title="BuyTicket">
 
     <Grid>
-        <ListBox x:Name="FilmList" SelectionChanged="Session_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListBox x:Name="Tickets" SelectionChanged="Session_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center">
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Padding="15" Text="{Binding Start_date, StringFormat=начало: {0}}"/>
-                            <TextBlock Padding="15" Text="{Binding End_date, StringFormat=конец: {0}}"/>
-                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding Start_date, StringFormat=начало: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding End_date, StringFormat=конец: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding Price, StringFormat=Цена: {0}}"/>
                         </StackPanel>
                         <Button Height="40" Content="Купить билеты" Click="Button_Click"></Button>
                     </StackPanel>

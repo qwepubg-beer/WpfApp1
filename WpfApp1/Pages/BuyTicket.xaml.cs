@@ -23,6 +23,13 @@ namespace WpfApp1.Pages
         public BuyTicket()
         {
             InitializeComponent();
+            List<Session> users = Core.Context.Session.ToList();
+            foreach (Session session in users) 
+            {
+                Buy buy = new Buy(session);
+                MainClass.Session.Add(buy);
+            }
+
         }
 
         private void Session_SelectionChanged(object sender, SelectionChangedEventArgs e)

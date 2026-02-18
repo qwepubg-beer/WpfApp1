@@ -12,5 +12,6 @@ namespace WpfApp1
         public static Account user { get; set; }=null;
         static public List<Film> Film { get; set; }
         static public Film ChoosingFilm { get; set; }
+        static public List<Buy> Session { get; set; }
     }
 }
