@@ -85,6 +85,7 @@
       <DependentUpon>BD.edmx</DependentUpon>
     </Compile>
     <Compile Include="Buy.cs" />
+    <Compile Include="ChooseTicket.cs" />
     <Compile Include="Cinema.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
