@@ -109,9 +109,6 @@
     <Compile Include="Pages\MyTickets.xaml.cs">
       <DependentUpon>MyTickets.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Page404.xaml.cs">
-      <DependentUpon>Page404.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Room.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -157,10 +154,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MyTickets.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Page404.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

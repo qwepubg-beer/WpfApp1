@@ -33,6 +33,14 @@ namespace WpfApp1.Pages
             {
                 Mes.Text = "У вас не активных билетов";
             }
+            foreach(Ticket t in tic)
+            {
+                ChooseTicket cht = new ChooseTicket(t);
+                MainClass.ChooseTickets.Add(cht);
+            }
+            Tickets.ItemsSource = MainClass.ChooseTickets;
+
+
         }
     }
 }

@@ -9,6 +9,24 @@
       Title="ChooseSeat">
 
     <Grid>
-        
+        <Grid Margin="0,50,0,0">
+            <ListBox x:Name="Tickets" SelectionChanged="Session_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Padding="5" Text="{Binding Seat, StringFormat=Место: {0}}"/>
+                            </StackPanel>
+                            <Button Height="40" Content="Выбрать" Click="Button_Click"></Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Grid>
     </Grid>
 </Page>
