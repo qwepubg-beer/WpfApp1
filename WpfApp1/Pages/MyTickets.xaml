@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel>
             <TextBlock Name="Mes" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Ваши билеты:" VerticalAlignment="Top" Width="500"/>
-            <ListBox Name="Tickets" d:ItemsSource="{d:SampleData ItemCount=5}" IsEnabled="False" Margin="150,10,150,0" Height="384">
+            <ListBox Name="Tickets" d:ItemsSource="{d:SampleData ItemCount=5}" IsEnabled="False" Margin="150,10,150,0" Height="384" Width="498">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">

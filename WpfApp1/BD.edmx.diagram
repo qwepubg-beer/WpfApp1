@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="Gordov1CModel.Room" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Gordov1CModel.Session" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Gordov1CModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gordov1CModel.Ticket" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gordov1CModel.Ticket" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="Gordov1CModel.FK__FeedBackF__Accou__656C112C" ManuallyRouted="false" />
         <AssociationConnector Association="Gordov1CModel.FK__Ticket__AccountI__5EBF139D" ManuallyRouted="false" />
         <AssociationConnector Association="Gordov1CModel.FK__FilmActor__Actor__693CA210" ManuallyRouted="false" />

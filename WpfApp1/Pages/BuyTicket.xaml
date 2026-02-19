@@ -14,9 +14,10 @@
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center">
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Padding="5" Text="{Binding Start_date, StringFormat=начало: {0}}"/>
-                            <TextBlock Padding="5" Text="{Binding End_date, StringFormat=конец: {0}}"/>
-                            <TextBlock Padding="5" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding Film, StringFormat=Фильм: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding Session.Start_date, StringFormat=начало: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding Number, StringFormat=Зал номер: {0}}"/>
+                            <TextBlock Padding="5" Text="{Binding Session.Price, StringFormat=Цена: {0}}"/>
                         </StackPanel>
                         <Button Height="40" Content="Купить билеты" Click="Button_Click"></Button>
                     </StackPanel>

@@ -29,12 +29,14 @@ namespace WpfApp1.Pages
                 Buy buy = new Buy(session);
                 MainClass.Session.Add(buy);
             }
+            Tickets.ItemsSource=MainClass.Session;
 
         }
 
         private void Session_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Buy g=Tickets.SelectedItem as Buy;
+            if (g != null) { MainClass.BuyTik = g; }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
