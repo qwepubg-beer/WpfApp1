@@ -22,5 +22,11 @@ namespace WpfApp1
     
         public virtual Account Account { get; set; }
         public virtual Session Session { get; set; }
+        public Ticket(int sessionID, int? accountID, int seatNumber)
+        {
+            SessionID = sessionID;
+            AccountID = accountID;
+            SeatNumber = seatNumber;
+        }
     }
 }
