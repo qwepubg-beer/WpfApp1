@@ -25,25 +25,20 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             List < Ticket > tic = Core.Context.Ticket.Where(a=>a.AccountID==MainClass.user.ID).ToList();
-            if (tic.Count > 0)
-            {
-                Tickets.ItemsSource = tic;
-                Tickets.IsEnabled = true;
-            }
-            else
-            {
-                Mes.Text = "У вас не активных билетов";
-            }
-            MessageBox.Show($"{tic.Count()}");
+            List<ChooseTicket> ct=new List<ChooseTicket>(); 
             foreach(Ticket t in tic)
             {
                 Session s = Core.Context.Session.First(u => u.ID == t.SessionID);
+                Film f = Core.Context.Film.First(u => u.ID == s.FilmID);
                 Room r = Core.Context.Room.First(u => u.ID == s.RoomID);
-                ChooseTicket cht = new ChooseTicket(t,r);
-                MainClass.ChooseTickets.Add(cht);
+                ChooseTicket cht = new ChooseTicket(t,r,s,f);
+                ct.Add(cht);
             }
-            Tickets.ItemsSource = MainClass.ChooseTickets;
+            MyTickList.ItemsSource = ct;
+ }
 
+        private void FilmList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

@@ -13,10 +13,10 @@ namespace WpfApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Gordov1CEntities3 : DbContext
+    public partial class Gordov1CEntities4 : DbContext
     {
-        public Gordov1CEntities3()
-            : base("name=Gordov1CEntities3")
+        public Gordov1CEntities4()
+            : base("name=Gordov1CEntities4")
         {
         }
     

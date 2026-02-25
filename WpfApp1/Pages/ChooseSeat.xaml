@@ -15,7 +15,7 @@
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel VerticalAlignment="Center">
-                                <TextBlock Padding="5" Text="{Binding Seat, StringFormat=Место: {0}}"/>
+                                <TextBlock Padding="5" Text="{Binding Number, StringFormat=Место: {0}}"/>
                             </StackPanel>
                             <Button Height="40" Content="Выбрать" Click="Button_Click"></Button>
                         </StackPanel>

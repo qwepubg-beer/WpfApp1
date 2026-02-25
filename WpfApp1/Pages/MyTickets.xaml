@@ -9,18 +9,18 @@
       Title="MyTickets">
 
     <Grid>
-        <StackPanel>
-            <TextBlock Name="Mes" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Ваши билеты:" VerticalAlignment="Top" Width="500"/>
-            <ListBox Name="Tickets" d:ItemsSource="{d:SampleData ItemCount=5}" IsEnabled="False" Margin="150,10,150,0" Height="384" Width="498">
+            <ListBox x:Name="MyTickList" SelectionChanged="FilmList_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="1,0,1,16" Width="798">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">
+                            <Image Height="100" Width="160"  Source="{Binding film.Image}"/>
                             <StackPanel VerticalAlignment="Center">
-                                <TextBlock Padding="5" Text="{Binding Seat, StringFormat=Место: {0}}"/>
-                                <TextBlock Padding="5" Text="{Binding Genre, StringFormat=Цена: {0}}"/>
-                                <TextBlock Padding="5" Text="{Binding Age+}"/>
+                                <TextBlock Padding="5" Text="{Binding film.Name}"/>
+                                <TextBlock Padding="5" Text="{Binding film.Genre, StringFormat=Жанр: {0}}"/>
+                                <TextBlock Padding="5" Text="{Binding session.Start_date, StringFormat=Дата: {0}}"/>
+                                <TextBlock Padding="5" Text="{Binding session.Price, StringFormat=Цена: {0}}"/>
+                                <TextBlock Padding="5" Text="{Binding ticket.SeatNumber, StringFormat=Место: {0}}"/>
                             </StackPanel>
-                            <Button Height="40" Content="Удалить"></Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -30,6 +30,5 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-        </StackPanel>
     </Grid>
 </Page>

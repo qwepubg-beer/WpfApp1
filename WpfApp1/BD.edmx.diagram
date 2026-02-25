@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="37f46053a4e7418aa2bece682188b9aa" Name="Diagram1">
+      <Diagram DiagramId="35e3e612fac643c78dec673f3f9078bb" Name="Diagram1">
         <EntityTypeShape EntityType="Gordov1CModel.Account" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="Gordov1CModel.Actor" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="Gordov1CModel.Cinema" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />

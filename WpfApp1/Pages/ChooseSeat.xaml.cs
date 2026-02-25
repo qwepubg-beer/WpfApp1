@@ -25,21 +25,35 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             List<Seats> S = Core.Context.Seats.Where(u=> u.RoomID==MainClass.BuyTik.Session.RoomID).ToList();
-            List<Ticket> t = Core.Context.Ticket.Where(u => u.SessionID== MainClass.BuyTik.Session.ID).ToList();
-
+            List<Ticket> t = Core.Context.Ticket.Where(u => u.SessionID == MainClass.BuyTik.Session.ID).ToList();
+            foreach (Ticket ticket in t) 
+            {
+                Session session = Core.Context.Session.First(a => a.ID == ticket.SessionID);
+                Seats seat = new Seats(ticket.SeatNumber,session.RoomID);
+                S.Remove(seat);
+            }
+            Seats.ItemsSource = S;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Ticket ticket = new Ticket(MainClass.BuyTik.Session.ID, MainClass.user.ID, MainClass.cs.Seat,DateTime.Now);
-            Core.Context.Ticket.Add(ticket);    
-            Core.Context.SaveChanges();
+            List<Ticket> t = Core.Context.Ticket.Where(a => a.SessionID==MainClass.BuyTik.Session.ID && a.SeatNumber== MainClass.cs.Number).ToList();
+            if (t.Count == 0)
+            {
+                Ticket ticket = new Ticket(MainClass.BuyTik.Session.ID, MainClass.user.ID, MainClass.cs.Number, DateTime.Now);
+                Core.Context.Ticket.Add(ticket);
+                Core.Context.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Место уже занято");
+            }
         }
 
         private void Session_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (Seats.SelectedItem != null)
-            { MainClass.cs = Seats.SelectedItem as Ssh;
+            { MainClass.cs = (Seats)Seats.SelectedItem ;
             }
 
             

@@ -8,27 +8,18 @@ namespace WpfApp1
 {
     internal class ChooseTicket
     {
-        Ticket ticket {  get; set; }
-        Room room { get; set; }
+        public Ticket ticket {  get; set; }
+        public Room room { get; set; }
+        public Session session { get; set; }
+        public Film film { get; set; }
  
-        public ChooseTicket(Ticket ticket,Room room)
+        public ChooseTicket(Ticket ticket,Room room,Session session,Film film)
         {
             this.ticket = ticket;
             this.room = room;
-            Session s = Core.Context.Session.FirstOrDefault(u => u.ID == ticket.SessionID);
-            if (s != null)
-            {
-                Room r = Core.Context.Room.FirstOrDefault(u => u.ID == s.RoomID);
-                if (r != null)
-                {
-                    room = r;
-                }
-                else
-                {
-                    room = new Room();
-
-                }
+            this.session = session; 
+            this.film = film;
             }
-        }
+        
     }
 }

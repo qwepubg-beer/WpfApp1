@@ -19,5 +19,12 @@ namespace WpfApp1
         public int RoomID { get; set; }
     
         public virtual Room Room { get; set; }
+        public Seats(int number, int roomID)
+        {
+            Number = number;
+            RoomID = roomID;
+
+        }
+        public Seats() { }
     }
 }

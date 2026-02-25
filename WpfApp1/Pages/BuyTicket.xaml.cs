@@ -23,6 +23,7 @@ namespace WpfApp1.Pages
         public BuyTicket()
         {
             InitializeComponent();
+            MainClass.Session.Clear();  
             List<Session> users = Core.Context.Session.ToList();
             foreach (Session session in users) 
             {
@@ -35,8 +36,8 @@ namespace WpfApp1.Pages
 
         private void Session_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Buy g=Tickets.SelectedItem as Buy;
-            if (g != null) { MainClass.BuyTik = g; }
+            Buy g=(Buy)Tickets.SelectedItem;
+            if (g != null) { MainClass.BuyTik = g;}
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

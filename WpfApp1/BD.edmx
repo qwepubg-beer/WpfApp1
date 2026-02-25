@@ -561,7 +561,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Gordov1CEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Gordov1CEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Actor" EntityType="Self.Actor" />
           <EntitySet Name="Cinema" EntityType="Self.Cinema" />
@@ -619,7 +619,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Gordov1CModelContainer" CdmEntityContainer="Gordov1CEntities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Gordov1CModelContainer" CdmEntityContainer="Gordov1CEntities4">
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="Gordov1CModel.Account">
               <MappingFragment StoreEntitySet="Account">

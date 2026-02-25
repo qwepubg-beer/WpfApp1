@@ -15,7 +15,6 @@ namespace WpfApp1
         static public List<Buy> Session { get; set; } =new List<Buy>();
         static public Buy BuyTik {get;set;}
         static public List<Buy> Tick { get; set; } = null;
-        static public List<ChooseTicket> ChooseTickets { get; set; }
-        static public Ssh cs { get; set; }
+        static public Seats cs { get; set; }
     }
 }
