@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    internal class Core
+    public class Ssh
     {
-        public static Gordov1CEntities3 Context = new Gordov1CEntities3();
+        public int Seat {  get; set; }
+        public Ssh(int seat)
+        {
+            Seat = seat;
+        }
     }
 }

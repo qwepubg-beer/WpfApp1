@@ -74,6 +74,14 @@
           <Property Name="Number" Type="int" Nullable="false" />
           <Property Name="CinemaID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Seats">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Session">
           <Key>
             <PropertyRef Name="ID" />
@@ -224,6 +232,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Seats_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Seats" Type="Self.Seats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seats">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище Gordov1CModelContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Actor" EntityType="Self.Actor" Schema="dbo" store:Type="Tables" />
@@ -232,6 +252,7 @@
           <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FilmActor" EntityType="Self.FilmActor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seats" EntityType="Self.Seats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
@@ -270,6 +291,10 @@
           <AssociationSet Name="FK__Ticket__SessionI__5DCAEF64" Association="Self.FK__Ticket__SessionI__5DCAEF64">
             <End Role="Session" EntitySet="Session" />
             <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seats_Room" Association="Self.FK_Seats_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Seats" EntitySet="Seats" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -358,6 +383,16 @@
           <Property Name="CinemaID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cinema" Relationship="Self.FK__Room__CinemaID__534D60F1" FromRole="Room" ToRole="Cinema" />
           <NavigationProperty Name="Session" Relationship="Self.FK__Session__RoomID__59063A47" FromRole="Room" ToRole="Session" />
+          <NavigationProperty Name="Seats" Relationship="Self.FK_Seats_Room" FromRole="Room" ToRole="Seats" />
+        </EntityType>
+        <EntityType Name="Seats">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Seats_Room" FromRole="Seats" ToRole="Room" />
         </EntityType>
         <EntityType Name="Session">
           <Key>
@@ -500,6 +535,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Seats_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Seats" Type="Self.Seats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seats">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Ticket__SessionI__5DCAEF64">
           <End Role="Session" Type="Self.Session" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -514,7 +561,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Gordov1CEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Gordov1CEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Actor" EntityType="Self.Actor" />
           <EntitySet Name="Cinema" EntityType="Self.Cinema" />
@@ -522,6 +569,7 @@
           <EntitySet Name="Film" EntityType="Self.Film" />
           <EntitySet Name="FilmActor" EntityType="Self.FilmActor" />
           <EntitySet Name="Room" EntityType="Self.Room" />
+          <EntitySet Name="Seats" EntityType="Self.Seats" />
           <EntitySet Name="Session" EntityType="Self.Session" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
@@ -557,6 +605,10 @@
             <End Role="Room" EntitySet="Room" />
             <End Role="Session" EntitySet="Session" />
           </AssociationSet>
+          <AssociationSet Name="FK_Seats_Room" Association="Self.FK_Seats_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
           <AssociationSet Name="FK__Ticket__SessionI__5DCAEF64" Association="Self.FK__Ticket__SessionI__5DCAEF64">
             <End Role="Session" EntitySet="Session" />
             <End Role="Ticket" EntitySet="Ticket" />
@@ -567,7 +619,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Gordov1CModelContainer" CdmEntityContainer="Gordov1CEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Gordov1CModelContainer" CdmEntityContainer="Gordov1CEntities3">
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="Gordov1CModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -641,6 +693,15 @@
                 <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="CinemaID" ColumnName="CinemaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seats">
+            <EntityTypeMapping TypeName="Gordov1CModel.Seats">
+              <MappingFragment StoreEntitySet="Seats">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

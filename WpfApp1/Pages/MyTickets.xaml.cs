@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,7 +24,7 @@ namespace WpfApp1.Pages
         public MyTickets()
         {
             InitializeComponent();
-            List < Ticket > tic = Core.Context.Ticket.Where(a=>a.AccountID==MainClass.user.ID  && a.PurchaseDate >= DateTime.Now).ToList();
+            List < Ticket > tic = Core.Context.Ticket.Where(a=>a.AccountID==MainClass.user.ID).ToList();
             if (tic.Count > 0)
             {
                 Tickets.ItemsSource = tic;
@@ -33,9 +34,12 @@ namespace WpfApp1.Pages
             {
                 Mes.Text = "У вас не активных билетов";
             }
+            MessageBox.Show($"{tic.Count()}");
             foreach(Ticket t in tic)
             {
-                ChooseTicket cht = new ChooseTicket(t);
+                Session s = Core.Context.Session.First(u => u.ID == t.SessionID);
+                Room r = Core.Context.Room.First(u => u.ID == s.RoomID);
+                ChooseTicket cht = new ChooseTicket(t,r);
                 MainClass.ChooseTickets.Add(cht);
             }
             Tickets.ItemsSource = MainClass.ChooseTickets;

@@ -18,6 +18,7 @@ namespace WpfApp1
         public Room()
         {
             this.Session = new HashSet<Session>();
+            this.Seats = new HashSet<Seats>();
         }
     
         public int ID { get; set; }
@@ -28,5 +29,7 @@ namespace WpfApp1
         public virtual Cinema Cinema { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Session> Session { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Seats> Seats { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace WpfApp1
         {
             if (MainClass.user!=null)
             {
-                MainFrame.NavigationService.Navigate(new MyTickets());
+                MainFrame.NavigationService.Navigate(new BuyTicket());
             }
             else
             {
@@ -62,7 +62,7 @@ namespace WpfApp1
         {
             if (MainClass.user != null)
             {
-                MainFrame.NavigationService.Navigate(new BuyTicket());
+                MainFrame.NavigationService.Navigate(new MyTickets());
             }
             else
             {

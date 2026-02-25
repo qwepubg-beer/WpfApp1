@@ -12,23 +12,12 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Ticket
+    public partial class Seats
     {
         public int ID { get; set; }
-        public int SessionID { get; set; }
-        public Nullable<int> AccountID { get; set; }
-        public int SeatNumber { get; set; }
-        public Nullable<System.DateTime> PurchaseDate { get; set; }
+        public int Number { get; set; }
+        public int RoomID { get; set; }
     
-        public virtual Account Account { get; set; }
-        public virtual Session Session { get; set; }
-        public Ticket() { }
-        public Ticket(int sessionID, int? accountID, int seatNumber, DateTime? purchaseDate)
-        {
-            SessionID = sessionID;
-            AccountID = accountID;
-            SeatNumber = seatNumber;
-            PurchaseDate = purchaseDate;
-        }
+        public virtual Room Room { get; set; }
     }
 }

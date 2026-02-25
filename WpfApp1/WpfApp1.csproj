@@ -112,9 +112,13 @@
     <Compile Include="Room.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Seats.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ssh.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -209,7 +213,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
@@ -219,6 +222,9 @@
     <Resource Include="Actors\Питт.jpg" />
     <Resource Include="Actors\Морс.jpg" />
     <Resource Include="Actors\Хэнкс.jpg" />
+    <Resource Include="Images\Бойцовскийклуб.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
@@ -229,7 +235,6 @@
       <DependentUpon>BD.edmx</DependentUpon>
       <LastGenOutput>BD.cs</LastGenOutput>
     </Content>
-    <Resource Include="Images\Бойцовскийклуб.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

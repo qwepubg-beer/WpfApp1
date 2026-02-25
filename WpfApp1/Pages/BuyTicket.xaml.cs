@@ -41,7 +41,8 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.MainFrame.Navigate(new ChooseSeat());
         }
     }
 }

@@ -12,10 +12,10 @@ namespace WpfApp1
         public static Account user { get; set; } = null;
         static public List<Film> Film { get; set; } = null;
         static public Film ChoosingFilm { get; set; } = null;
-        static public List<Buy> Session { get; set; } = null;
-        static public Buy BuyTik {get;set;} = null;
+        static public List<Buy> Session { get; set; } =new List<Buy>();
+        static public Buy BuyTik {get;set;}
         static public List<Buy> Tick { get; set; } = null;
-        static public List<ChooseTicket> ChooseTickets { get; set; } = null;
-        static public int cs { get; set; }=0;
+        static public List<ChooseTicket> ChooseTickets { get; set; }
+        static public Ssh cs { get; set; }
     }
 }

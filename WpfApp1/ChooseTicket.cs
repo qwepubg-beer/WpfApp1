@@ -11,10 +11,11 @@ namespace WpfApp1
         Ticket ticket {  get; set; }
         Room room { get; set; }
  
-        public ChooseTicket(Ticket ticket)
+        public ChooseTicket(Ticket ticket,Room room)
         {
             this.ticket = ticket;
-            Session s = Core.Context.Session.First(u => u.ID == ticket.SessionID);
+            this.room = room;
+            Session s = Core.Context.Session.FirstOrDefault(u => u.ID == ticket.SessionID);
             if (s != null)
             {
                 Room r = Core.Context.Room.FirstOrDefault(u => u.ID == s.RoomID);
