@@ -15,5 +15,5 @@ namespace UnitTest_Reg
             Assert.IsFalse(Enter("    ", "    "));
         }
     }
-    }
 }
+
