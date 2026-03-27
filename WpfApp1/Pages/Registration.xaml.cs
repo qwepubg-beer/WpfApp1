@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using static WpfApp1.Regestration;
 namespace WpfApp1.Pages
 {
     /// <summary>
@@ -25,7 +25,7 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (mail.Text != null && login.Text != null)
             {
@@ -60,6 +60,17 @@ namespace WpfApp1.Pages
                 {
                     MessageBox.Show("Вы уже зарегестрированы!");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Заполните поля!");
+            }
+        }*/
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(Reg(mail.Text, login.Text, p1.Text, p2.Text))
+            {
+                MessageBox.Show("Вы зарегестрированы!");
             }
             else
             {

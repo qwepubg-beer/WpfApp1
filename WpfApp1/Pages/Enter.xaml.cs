@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using static WpfApp1.Regestration;
 namespace WpfApp1.Pages
 {
     /// <summary>
@@ -25,6 +25,7 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+        /*
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -53,6 +54,18 @@ namespace WpfApp1.Pages
             }
 
 
+        }*/
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(Enter(log.Text, pas.Text))
+            {
+                MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.MainFrame.Navigate(new ChooseFilm());
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден!");
+            }
         }
     }
 }

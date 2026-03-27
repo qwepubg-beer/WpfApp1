@@ -109,6 +109,7 @@
     <Compile Include="Pages\MyTickets.xaml.cs">
       <DependentUpon>MyTickets.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Regestration.cs" />
     <Compile Include="Room.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
