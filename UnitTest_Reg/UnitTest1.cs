@@ -9,7 +9,7 @@ namespace UnitTest_Reg
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.IsTrue(Enter("test","test"));
+            Assert.IsTrue(Enter("Test","Test"));
             Assert.IsFalse(Enter("test", "1234"));
             Assert.IsFalse(Enter("", ""));
             Assert.IsFalse(Enter("    ", "    "));

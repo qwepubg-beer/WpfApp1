@@ -15,15 +15,15 @@ namespace WpfApp1
     public partial class Ticket
     {
         public int ID { get; set; }
+        public int AccountID { get; set; }
         public int SessionID { get; set; }
-        public Nullable<int> AccountID { get; set; }
         public int SeatNumber { get; set; }
-        public Nullable<System.DateTime> PurchaseDate { get; set; }
+        public double Price { get; set; }
+        public System.DateTime PurchaseDate { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual Session Session { get; set; }
-        public Ticket() { }
-        public Ticket(int sessionID, int? accountID, int seatNumber, DateTime? purchaseDate)
+        public Ticket(int sessionID, int accountID, int seatNumber, DateTime purchaseDate)
         {
             SessionID = sessionID;
             AccountID = accountID;

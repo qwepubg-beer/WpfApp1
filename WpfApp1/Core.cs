@@ -8,6 +8,6 @@ namespace WpfApp1
 {
     internal class Core
     {
-        public static Gordov1CEntities4 Context = new Gordov1CEntities4();
+        public static G14Entities Context = new G14Entities();
     }
 }

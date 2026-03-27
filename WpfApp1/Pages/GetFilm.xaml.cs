@@ -24,7 +24,7 @@ namespace WpfApp1.Pages
         {
             DataContext = MainClass.ChoosingFilm;
             InitializeComponent();
-            List <FilmActor> actors = Core.Context.FilmActor.Where(a=>a.FilmID==MainClass.ChoosingFilm.ID).ToList();
+            List <FilmActor> actors = Core.Context.FilmActor.Where(a=>a.FimID == MainClass.ChoosingFilm.ID).ToList();
             List <Actor> actors1 = new List<Actor>();
             foreach(FilmActor actor in actors)
             {

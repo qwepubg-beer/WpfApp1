@@ -12,7 +12,7 @@ namespace WpfApp1
     {
         static public bool Enter(string login, string password)
         {
-            if (string.IsNullOrWhiteSpace(login)|| string.IsNullOrWhiteSpace(password))
+            if (!string.IsNullOrWhiteSpace(login)|| !string.IsNullOrWhiteSpace(password))
             {
                 Account editUser = Core.Context.Account.FirstOrDefault(u => u.Login==login);
                 if (editUser != null)
@@ -27,7 +27,7 @@ namespace WpfApp1
                         return false;
                     }
                 }
-                return false;
+                else {  return false; }
             }
             else
             {
@@ -39,8 +39,7 @@ namespace WpfApp1
             if (string.IsNullOrWhiteSpace(mail) || string.IsNullOrWhiteSpace(login))
             {
                 Account editUser = Core.Context.Account.FirstOrDefault(u => u.Login==login);
-                Account editUser2 = Core.Context.Account.FirstOrDefault(u => u.E_mail==mail);
-                bool f1 = editUser == null && editUser2 == null;
+                bool f1 = editUser == null;
                 bool f2 = password1 == password2;
                 if (!f1)
                 {
@@ -48,7 +47,6 @@ namespace WpfApp1
                     {
                         Account newUser = new Account
                         {
-                            E_mail = mail,
                             Login = login,
                             Password = password1
                         };

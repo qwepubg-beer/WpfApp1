@@ -14,10 +14,9 @@ namespace WpfApp1
     
     public partial class FilmActor
     {
-        public int ID { get; set; }
-        public int FilmID { get; set; }
+        public int FimID { get; set; }
         public int ActorID { get; set; }
-        public string RoleName { get; set; }
+        public int ID { get; set; }
     
         public virtual Actor Actor { get; set; }
         public virtual Film Film { get; set; }

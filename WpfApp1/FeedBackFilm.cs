@@ -16,12 +16,10 @@ namespace WpfApp1
     {
         public int ID { get; set; }
         public int FilmID { get; set; }
-        public int AccountID { get; set; }
+        public string Text { get; set; }
+        public System.DateTime Date { get; set; }
         public Nullable<double> Rating { get; set; }
-        public string Comment { get; set; }
-        public Nullable<System.DateTime> FeedbackDate { get; set; }
     
-        public virtual Account Account { get; set; }
         public virtual Film Film { get; set; }
     }
 }

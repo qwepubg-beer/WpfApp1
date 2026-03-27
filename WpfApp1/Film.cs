@@ -27,8 +27,8 @@ namespace WpfApp1
         public System.DateTime ReleaseDate { get; set; }
         public string Genre { get; set; }
         public string Description { get; set; }
-        public Nullable<double> Rating { get; set; }
-        public Nullable<int> Age { get; set; }
+        public double Rating { get; set; }
+        public int Age { get; set; }
         public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

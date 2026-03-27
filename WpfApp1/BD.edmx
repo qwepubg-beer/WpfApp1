@@ -4,33 +4,32 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Gordov1CModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище G14Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="E_mail" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Actor">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Age" Type="int" />
-          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Cinema">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Adress" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="FeedBackFilm">
           <Key>
@@ -38,32 +37,30 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FilmID" Type="int" Nullable="false" />
-          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="150" />
+          <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Rating" Type="float" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="1000" />
-          <Property Name="FeedbackDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Film">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ReleaseDate" Type="date" Nullable="false" />
-          <Property Name="Genre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Rating" Type="float" />
-          <Property Name="Age" Type="int" />
-          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="FilmActor">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FilmID" Type="int" Nullable="false" />
+          <Property Name="FimID" Type="int" Nullable="false" />
           <Property Name="ActorID" Type="int" Nullable="false" />
-          <Property Name="RoleName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -107,29 +104,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
           <Property Name="SessionID" Type="int" Nullable="false" />
-          <Property Name="AccountID" Type="int" />
           <Property Name="SeatNumber" Type="int" Nullable="false" />
-          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__FeedBackF__Accou__656C112C">
-          <End Role="Account" Type="Self.Account" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="FeedBackFilm" Type="Self.FeedBackFilm" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="FeedBackFilm">
-              <PropertyRef Name="AccountID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__FeedBackF__FilmI__6477ECF3">
-          <End Role="Film" Type="Self.Film" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_FeedBackFilm_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="FeedBackFilm" Type="Self.FeedBackFilm" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Film">
@@ -140,10 +122,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FilmActor__Actor__693CA210">
-          <End Role="Actor" Type="Self.Actor" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Film_Actor_Actor">
+          <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
           <End Role="FilmActor" Type="Self.FilmActor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actor">
@@ -154,24 +134,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FilmActor__FilmI__68487DD7">
-          <End Role="Film" Type="Self.Film" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Film_Actor_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="FilmActor" Type="Self.FilmActor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Film">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="FilmActor">
-              <PropertyRef Name="FilmID" />
+              <PropertyRef Name="FimID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Room__CinemaID__534D60F1">
-          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Room_Cinema">
+          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1" />
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cinema">
@@ -179,56 +155,6 @@
             </Principal>
             <Dependent Role="Room">
               <PropertyRef Name="CinemaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Session__FilmID__59FA5E80">
-          <End Role="Film" Type="Self.Film" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Film">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Session">
-              <PropertyRef Name="FilmID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Session__RoomID__59063A47">
-          <End Role="Room" Type="Self.Room" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Session">
-              <PropertyRef Name="RoomID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Ticket__AccountI__5EBF139D">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Ticket">
-              <PropertyRef Name="AccountID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Ticket__SessionI__5DCAEF64">
-          <End Role="Session" Type="Self.Session" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Session">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Ticket">
-              <PropertyRef Name="SessionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -244,7 +170,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище Gordov1CModelContainer">
+        <Association Name="FK_Session_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="FilmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище G14ModelContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Actor" EntityType="Self.Actor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cinema" EntityType="Self.Cinema" Schema="dbo" store:Type="Tables" />
@@ -256,82 +230,76 @@
           <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__FeedBackF__Accou__656C112C" Association="Self.FK__FeedBackF__Accou__656C112C">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="FeedBackFilm" EntitySet="FeedBackFilm" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FeedBackF__FilmI__6477ECF3" Association="Self.FK__FeedBackF__FilmI__6477ECF3">
+          <AssociationSet Name="FK_FeedBackFilm_Film" Association="Self.FK_FeedBackFilm_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="FeedBackFilm" EntitySet="FeedBackFilm" />
           </AssociationSet>
-          <AssociationSet Name="FK__FilmActor__Actor__693CA210" Association="Self.FK__FilmActor__Actor__693CA210">
+          <AssociationSet Name="FK_Film_Actor_Actor" Association="Self.FK_Film_Actor_Actor">
             <End Role="Actor" EntitySet="Actor" />
             <End Role="FilmActor" EntitySet="FilmActor" />
           </AssociationSet>
-          <AssociationSet Name="FK__FilmActor__FilmI__68487DD7" Association="Self.FK__FilmActor__FilmI__68487DD7">
+          <AssociationSet Name="FK_Film_Actor_Film" Association="Self.FK_Film_Actor_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="FilmActor" EntitySet="FilmActor" />
           </AssociationSet>
-          <AssociationSet Name="FK__Room__CinemaID__534D60F1" Association="Self.FK__Room__CinemaID__534D60F1">
+          <AssociationSet Name="FK_Room_Cinema" Association="Self.FK_Room_Cinema">
             <End Role="Cinema" EntitySet="Cinema" />
             <End Role="Room" EntitySet="Room" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Session__FilmID__59FA5E80" Association="Self.FK__Session__FilmID__59FA5E80">
-            <End Role="Film" EntitySet="Film" />
-            <End Role="Session" EntitySet="Session" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Session__RoomID__59063A47" Association="Self.FK__Session__RoomID__59063A47">
-            <End Role="Room" EntitySet="Room" />
-            <End Role="Session" EntitySet="Session" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ticket__AccountI__5EBF139D" Association="Self.FK__Ticket__AccountI__5EBF139D">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Ticket" EntitySet="Ticket" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ticket__SessionI__5DCAEF64" Association="Self.FK__Ticket__SessionI__5DCAEF64">
-            <End Role="Session" EntitySet="Session" />
-            <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
           <AssociationSet Name="FK_Seats_Room" Association="Self.FK_Seats_Room">
             <End Role="Room" EntitySet="Room" />
             <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Film" Association="Self.FK_Session_Film">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Room" Association="Self.FK_Session_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Account" Association="Self.FK_Ticket_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Session" Association="Self.FK_Ticket_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Gordov1CModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="G14Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="E_mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="FeedBackFilm" Relationship="Self.FK__FeedBackF__Accou__656C112C" FromRole="Account" ToRole="FeedBackFilm" />
-          <NavigationProperty Name="Ticket" Relationship="Self.FK__Ticket__AccountI__5EBF139D" FromRole="Account" ToRole="Ticket" />
+          <Property Name="Login" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Account" FromRole="Account" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="Actor">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="FilmActor" Relationship="Self.FK__FilmActor__Actor__693CA210" FromRole="Actor" ToRole="FilmActor" />
+          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FilmActor" Relationship="Self.FK_Film_Actor_Actor" FromRole="Actor" ToRole="FilmActor" />
         </EntityType>
         <EntityType Name="Cinema">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Room" Relationship="Self.FK__Room__CinemaID__534D60F1" FromRole="Cinema" ToRole="Room" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Room_Cinema" FromRole="Cinema" ToRole="Room" />
         </EntityType>
         <EntityType Name="FeedBackFilm">
           <Key>
@@ -339,39 +307,36 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FilmID" Type="Int32" Nullable="false" />
-          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Rating" Type="Double" />
-          <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="FeedbackDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__FeedBackF__Accou__656C112C" FromRole="FeedBackFilm" ToRole="Account" />
-          <NavigationProperty Name="Film" Relationship="Self.FK__FeedBackF__FilmI__6477ECF3" FromRole="FeedBackFilm" ToRole="Film" />
+          <NavigationProperty Name="Film" Relationship="Self.FK_FeedBackFilm_Film" FromRole="FeedBackFilm" ToRole="Film" />
         </EntityType>
         <EntityType Name="Film">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Genre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Rating" Type="Double" />
-          <Property Name="Age" Type="Int32" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="FeedBackFilm" Relationship="Self.FK__FeedBackF__FilmI__6477ECF3" FromRole="Film" ToRole="FeedBackFilm" />
-          <NavigationProperty Name="FilmActor" Relationship="Self.FK__FilmActor__FilmI__68487DD7" FromRole="Film" ToRole="FilmActor" />
-          <NavigationProperty Name="Session" Relationship="Self.FK__Session__FilmID__59FA5E80" FromRole="Film" ToRole="Session" />
+          <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FeedBackFilm" Relationship="Self.FK_FeedBackFilm_Film" FromRole="Film" ToRole="FeedBackFilm" />
+          <NavigationProperty Name="FilmActor" Relationship="Self.FK_Film_Actor_Film" FromRole="Film" ToRole="FilmActor" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_Session_Film" FromRole="Film" ToRole="Session" />
         </EntityType>
         <EntityType Name="FilmActor">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FilmID" Type="Int32" Nullable="false" />
+          <Property Name="FimID" Type="Int32" Nullable="false" />
           <Property Name="ActorID" Type="Int32" Nullable="false" />
-          <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Actor" Relationship="Self.FK__FilmActor__Actor__693CA210" FromRole="FilmActor" ToRole="Actor" />
-          <NavigationProperty Name="Film" Relationship="Self.FK__FilmActor__FilmI__68487DD7" FromRole="FilmActor" ToRole="Film" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Actor" Relationship="Self.FK_Film_Actor_Actor" FromRole="FilmActor" ToRole="Actor" />
+          <NavigationProperty Name="Film" Relationship="Self.FK_Film_Actor_Film" FromRole="FilmActor" ToRole="Film" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -381,9 +346,9 @@
           <Property Name="TotalSeats" Type="Int32" Nullable="false" />
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="CinemaID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cinema" Relationship="Self.FK__Room__CinemaID__534D60F1" FromRole="Room" ToRole="Cinema" />
-          <NavigationProperty Name="Session" Relationship="Self.FK__Session__RoomID__59063A47" FromRole="Room" ToRole="Session" />
+          <NavigationProperty Name="Cinema" Relationship="Self.FK_Room_Cinema" FromRole="Room" ToRole="Cinema" />
           <NavigationProperty Name="Seats" Relationship="Self.FK_Seats_Room" FromRole="Room" ToRole="Seats" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_Session_Room" FromRole="Room" ToRole="Session" />
         </EntityType>
         <EntityType Name="Seats">
           <Key>
@@ -403,9 +368,9 @@
           <Property Name="FilmID" Type="Int32" Nullable="false" />
           <Property Name="Start_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Price" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Film" Relationship="Self.FK__Session__FilmID__59FA5E80" FromRole="Session" ToRole="Film" />
-          <NavigationProperty Name="Room" Relationship="Self.FK__Session__RoomID__59063A47" FromRole="Session" ToRole="Room" />
-          <NavigationProperty Name="Ticket" Relationship="Self.FK__Ticket__SessionI__5DCAEF64" FromRole="Session" ToRole="Ticket" />
+          <NavigationProperty Name="Film" Relationship="Self.FK_Session_Film" FromRole="Session" ToRole="Film" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Session_Room" FromRole="Session" ToRole="Room" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Session" FromRole="Session" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -422,29 +387,16 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
           <Property Name="SessionID" Type="Int32" Nullable="false" />
-          <Property Name="AccountID" Type="Int32" />
           <Property Name="SeatNumber" Type="Int32" Nullable="false" />
-          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Ticket__AccountI__5EBF139D" FromRole="Ticket" ToRole="Account" />
-          <NavigationProperty Name="Session" Relationship="Self.FK__Ticket__SessionI__5DCAEF64" FromRole="Ticket" ToRole="Session" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Ticket_Account" FromRole="Ticket" ToRole="Account" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_Ticket_Session" FromRole="Ticket" ToRole="Session" />
         </EntityType>
-        <Association Name="FK__FeedBackF__Accou__656C112C">
-          <End Role="Account" Type="Self.Account" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="FeedBackFilm" Type="Self.FeedBackFilm" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="FeedBackFilm">
-              <PropertyRef Name="AccountID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Ticket__AccountI__5EBF139D">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+        <Association Name="FK_Ticket_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
@@ -455,10 +407,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FilmActor__Actor__693CA210">
-          <End Role="Actor" Type="Self.Actor" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Film_Actor_Actor">
+          <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
           <End Role="FilmActor" Type="Self.FilmActor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actor">
@@ -469,10 +419,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Room__CinemaID__534D60F1">
-          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Room_Cinema">
+          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1" />
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cinema">
@@ -483,10 +431,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FeedBackF__FilmI__6477ECF3">
-          <End Role="Film" Type="Self.Film" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_FeedBackFilm_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="FeedBackFilm" Type="Self.FeedBackFilm" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Film">
@@ -497,21 +443,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FilmActor__FilmI__68487DD7">
-          <End Role="Film" Type="Self.Film" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Film_Actor_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="FilmActor" Type="Self.FilmActor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Film">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="FilmActor">
-              <PropertyRef Name="FilmID" />
+              <PropertyRef Name="FimID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Session__FilmID__59FA5E80">
+        <Association Name="FK_Session_Film">
           <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="Session" Type="Self.Session" Multiplicity="*" />
           <ReferentialConstraint>
@@ -520,18 +464,6 @@
             </Principal>
             <Dependent Role="Session">
               <PropertyRef Name="FilmID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Session__RoomID__59063A47">
-          <End Role="Room" Type="Self.Room" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Session">
-              <PropertyRef Name="RoomID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -547,10 +479,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__SessionI__5DCAEF64">
-          <End Role="Session" Type="Self.Session" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Session_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Session">
@@ -561,7 +503,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Gordov1CEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="G14Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Actor" EntityType="Self.Actor" />
           <EntitySet Name="Cinema" EntityType="Self.Cinema" />
@@ -573,43 +515,39 @@
           <EntitySet Name="Session" EntityType="Self.Session" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
-          <AssociationSet Name="FK__FeedBackF__Accou__656C112C" Association="Self.FK__FeedBackF__Accou__656C112C">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="FeedBackFilm" EntitySet="FeedBackFilm" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ticket__AccountI__5EBF139D" Association="Self.FK__Ticket__AccountI__5EBF139D">
+          <AssociationSet Name="FK_Ticket_Account" Association="Self.FK_Ticket_Account">
             <End Role="Account" EntitySet="Account" />
             <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
-          <AssociationSet Name="FK__FilmActor__Actor__693CA210" Association="Self.FK__FilmActor__Actor__693CA210">
+          <AssociationSet Name="FK_Film_Actor_Actor" Association="Self.FK_Film_Actor_Actor">
             <End Role="Actor" EntitySet="Actor" />
             <End Role="FilmActor" EntitySet="FilmActor" />
           </AssociationSet>
-          <AssociationSet Name="FK__Room__CinemaID__534D60F1" Association="Self.FK__Room__CinemaID__534D60F1">
+          <AssociationSet Name="FK_Room_Cinema" Association="Self.FK_Room_Cinema">
             <End Role="Cinema" EntitySet="Cinema" />
             <End Role="Room" EntitySet="Room" />
           </AssociationSet>
-          <AssociationSet Name="FK__FeedBackF__FilmI__6477ECF3" Association="Self.FK__FeedBackF__FilmI__6477ECF3">
+          <AssociationSet Name="FK_FeedBackFilm_Film" Association="Self.FK_FeedBackFilm_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="FeedBackFilm" EntitySet="FeedBackFilm" />
           </AssociationSet>
-          <AssociationSet Name="FK__FilmActor__FilmI__68487DD7" Association="Self.FK__FilmActor__FilmI__68487DD7">
+          <AssociationSet Name="FK_Film_Actor_Film" Association="Self.FK_Film_Actor_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="FilmActor" EntitySet="FilmActor" />
           </AssociationSet>
-          <AssociationSet Name="FK__Session__FilmID__59FA5E80" Association="Self.FK__Session__FilmID__59FA5E80">
+          <AssociationSet Name="FK_Session_Film" Association="Self.FK_Session_Film">
             <End Role="Film" EntitySet="Film" />
-            <End Role="Session" EntitySet="Session" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Session__RoomID__59063A47" Association="Self.FK__Session__RoomID__59063A47">
-            <End Role="Room" EntitySet="Room" />
             <End Role="Session" EntitySet="Session" />
           </AssociationSet>
           <AssociationSet Name="FK_Seats_Room" Association="Self.FK_Seats_Room">
             <End Role="Room" EntitySet="Room" />
             <End Role="Seats" EntitySet="Seats" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__SessionI__5DCAEF64" Association="Self.FK__Ticket__SessionI__5DCAEF64">
+          <AssociationSet Name="FK_Session_Room" Association="Self.FK_Session_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Session" Association="Self.FK_Ticket_Session">
             <End Role="Session" EntitySet="Session" />
             <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
@@ -619,51 +557,49 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Gordov1CModelContainer" CdmEntityContainer="Gordov1CEntities4">
+        <EntityContainerMapping StorageEntityContainer="Хранилище G14ModelContainer" CdmEntityContainer="G14Entities">
           <EntitySetMapping Name="Account">
-            <EntityTypeMapping TypeName="Gordov1CModel.Account">
+            <EntityTypeMapping TypeName="G14Model.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Actor">
-            <EntityTypeMapping TypeName="Gordov1CModel.Actor">
+            <EntityTypeMapping TypeName="G14Model.Actor">
               <MappingFragment StoreEntitySet="Actor">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cinema">
-            <EntityTypeMapping TypeName="Gordov1CModel.Cinema">
+            <EntityTypeMapping TypeName="G14Model.Cinema">
               <MappingFragment StoreEntitySet="Cinema">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FeedBackFilm">
-            <EntityTypeMapping TypeName="Gordov1CModel.FeedBackFilm">
+            <EntityTypeMapping TypeName="G14Model.FeedBackFilm">
               <MappingFragment StoreEntitySet="FeedBackFilm">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FilmID" ColumnName="FilmID" />
-                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Film">
-            <EntityTypeMapping TypeName="Gordov1CModel.Film">
+            <EntityTypeMapping TypeName="G14Model.Film">
               <MappingFragment StoreEntitySet="Film">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -677,17 +613,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FilmActor">
-            <EntityTypeMapping TypeName="Gordov1CModel.FilmActor">
+            <EntityTypeMapping TypeName="G14Model.FilmActor">
               <MappingFragment StoreEntitySet="FilmActor">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="FilmID" ColumnName="FilmID" />
+                <ScalarProperty Name="FimID" ColumnName="FimID" />
                 <ScalarProperty Name="ActorID" ColumnName="ActorID" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Room">
-            <EntityTypeMapping TypeName="Gordov1CModel.Room">
+            <EntityTypeMapping TypeName="G14Model.Room">
               <MappingFragment StoreEntitySet="Room">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
@@ -697,7 +632,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Seats">
-            <EntityTypeMapping TypeName="Gordov1CModel.Seats">
+            <EntityTypeMapping TypeName="G14Model.Seats">
               <MappingFragment StoreEntitySet="Seats">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
@@ -706,7 +641,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Session">
-            <EntityTypeMapping TypeName="Gordov1CModel.Session">
+            <EntityTypeMapping TypeName="G14Model.Session">
               <MappingFragment StoreEntitySet="Session">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="RoomID" ColumnName="RoomID" />
@@ -717,7 +652,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Gordov1CModel.sysdiagrams">
+            <EntityTypeMapping TypeName="G14Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -728,12 +663,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ticket">
-            <EntityTypeMapping TypeName="Gordov1CModel.Ticket">
+            <EntityTypeMapping TypeName="G14Model.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
                 <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
                 <ScalarProperty Name="SeatNumber" ColumnName="SeatNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
               </MappingFragment>
             </EntityTypeMapping>
